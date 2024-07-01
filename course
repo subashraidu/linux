@@ -31,4 +31,101 @@ Operating systems come in various types, including:
 Popular examples of operating systems include Windows (by Microsoft), macOS (by Apple), Linux (open-source), and Unix (historically significant, basis for many others). Each OS has its strengths and is designed to meet specific computing needs, ranging from personal computing to enterprise-level server operations.
 
 
+# linux directory structure.
+
+In Linux, file structures are organized in a hierarchical manner, following the Filesystem Hierarchy Standard (FHS).
+
+/ (Root directory):The top-level directory in the filesystem hierarchy.Contains all other directories and files on the system.
+/bin: Essential command binaries (e.g., ls, cp, mv). banaries and executable programs
+/etc: System configuration files. configuration files control how the operating system or the application behave
+/home: Home directories for users.Each user typically has a subdirectory here (/home/user).
+/opt: Optional application software packages. which are not bundled with the operating system
+/tmp : temporary space, typically cleared on reboot 
+/usr: Secondary hierarchy containing non-essential binaries, libraries, documentation, 
+
+/usr: user related programs live 
+
+    Secondary hierarchy containing non-essential files.
+    Example subdirectories:
+        /usr/bin: Non-essential command binaries.
+        /usr/lib and /usr/lib64: Libraries for binaries in /usr/bin.
+        /usr/share: Architecture-independent data files.
+        /usr/include: Header files for C programming.
+
+/var: Variable data files (e.g., logs, mail queues, printer spools). Mostnotably log files
+
+/var:
+
+    Variable data files.
+    Example subdirectories:
+        /var/log: System log files.
+        /var/spool: Spool for various services (e.g., mail, printing).
+        /var/lib: State information for programs.
+
+/boot: Files needed for booting the system.Files needed to boot the operating system 
+
+/dev: Device files.
+
+    Device files representing hardware devices.
+    Examples:
+        /dev/sda: First SATA hard disk.
+        /dev/tty1: First virtual console.
+        /dev/null: Bit-bucket device (discards all data written to it).
+
+/etc: System configuration files.
+
+    Configuration files for the system and applications.
+    Examples:
+        /etc/passwd: User account information.
+        /etc/fstab: Filesystem table.
+        /etc/network: Network configuration files.
+
+/lib and /lib64: Essential shared libraries and kernel modules.
+
+/sbin: Essential system binaries (usually for system administration).
+/media : used to mount removable media (CD-ROMS usbs)
+
+/proc and /sys:
+
+    Virtual filesystems providing access to kernel data structures.
+    /proc contains runtime system information (e.g., /proc/cpuinfo, /proc/meminfo).
+    /sys exposes kernel variables (e.g., /sys/block, /sys/class).
+
+
+      /mnt used to mount external file systems
+/opt optional or third party softwares 
+/proc provides info about running softwares 
+/srv data which is served by the linux server
+/srv/www web server files
+/srv/ftp ftp files
+
+
+#applicaation directory structues
+
+/user/local/creashplan/bin
+
+/user/local/creashplan/etc
+
+/user/local/creashplan/lib
+
+/user/local/creashplan/log
+
+or
+/opt/avg/bin./etc,/lib,/log
+
+or
+
+/user/locaol/bin/myapp
+/user/locaol/etc/myapp.conf
+/user/locaol/lib/libmyspp.so
+
+application that are not part of part of the base OS can be installed in: 
+/user/local
+/opt
+
+
+
+
+
+
 
