@@ -1,0 +1,34 @@
+# What is Linux?
+
+Linux is an open-source operating system based on the Unix kernel. It powers most modern servers, cloud platforms, and containers. Unlike Windows, Linux is lightweight, stable, secure, and highly customizable, which makes it the preferred choice for production environments.
+
+It is widely used in:
+Servers (web servers, app servers, database servers)
+Cloud platforms (AWS, GCP, Azure mostly run Linux VMs)
+Containers (Docker and Kubernetes are built on Linux kernel features like namespaces and cgroups)
+
+# Why Linux is Relevant to DevOps?
+
+1. Servers & Cloud Run on Linux
+  Most applications in enterprises are hosted on Linux servers (on-prem or cloud).
+  DevOps engineers must know Linux to deploy, manage, and troubleshoot applications.
+
+2.Automation & Scripting
+  DevOps relies heavily on automation.
+  Linux + Shell scripting (Bash, Python) allows you to automate deployments, monitoring, backups, and CI/CD tasks.
+
+3. Containers & Orchestration
+  Docker containers and Kubernetes clusters use Linux features (namespaces, cgroups).
+  Without Linux knowledge, it’s difficult to debug containerized workloads.
+
+4.Networking & Security
+  DevOps engineers often configure firewalls, load balancers, SSL, DNS — all done using Linux tools (iptables, netstat, curl, etc.).
+  Linux permissions and process management ensure application security.
+
+5. Monitoring & Logging
+  Logs (system logs, app logs) are stored in Linux files (/var/log/…).
+  Tools like Fluentd, ELK stack, Zabbix rely on Linux.
+
+6. CI/CD & Infrastructure as Code
+  Jenkins, Ansible, Terraform, Kubernetes, Helm — all run best on Linux.
+  DevOps pipelines usually deploy to Linux environments.
