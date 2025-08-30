@@ -1,0 +1,34 @@
+## Linux File System Overview
+
+The Linux file system follows a hierarchical tree structure, starting from the root directory /.
+Everything in Linux (files, directories, devices, processes) is represented as a file.
+Unlike Windows (C:, D: drives), Linux doesn’t have separate drives — all storage is mounted into this single tree.
+
+## Important Directories in Linux
+
+| Directory | Purpose                                                                             |
+| --------- | ----------------------------------------------------------------------------------- |
+| `/`       | Root of the file system; all files & directories start here.                        |
+| `/bin`    | Essential binary executables (e.g., `ls`, `cat`, `cp`).                             |
+| `/sbin`   | System binaries (for administrators, e.g., `ifconfig`, `iptables`).                 |
+| `/etc`    | Configuration files for system and applications (e.g., `/etc/passwd`, `/etc/ssh/`). |
+| `/home`   | User home directories (e.g., `/home/subash`).                                       |
+| `/root`   | Home directory of the root (superuser).                                             |
+| `/var`    | Variable data: logs, spool files (e.g., `/var/log/` contains system logs).          |
+| `/tmp`    | Temporary files, cleared after reboot.                                              |
+| `/usr`    | User programs and libraries (non-essential at boot, e.g., `/usr/bin/`).             |
+| `/lib`    | Shared libraries required by binaries in `/bin` and `/sbin`.                        |
+| `/opt`    | Optional software packages (3rd party apps).                                        |
+| `/mnt`    | Temporary mount point for external storage.                                         |
+| `/media`  | Mount point for removable media (USB, CD-ROM).                                      |
+| `/dev`    | Device files (disks, terminals, printers – e.g., `/dev/sda1`).                      |
+| `/proc`   | Virtual file system with process and kernel info (e.g., `/proc/cpuinfo`).           |
+| `/sys`    | Provides information about hardware and kernel.                                     |
+
+# Key Points for DevOps
+
+Logs are stored in /var/log/ → useful for troubleshooting.
+Configs are in /etc/ → editing configs is daily work in DevOps.
+Executables in /bin, /usr/bin → used in scripts & automation.
+Processes & system info in /proc → monitoring tools read from here.
+Disk mounts → knowing /mnt, /media is important for cloud storage.
