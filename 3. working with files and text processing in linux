@@ -1,0 +1,67 @@
+### worling with files in linux ###
+
+## cat (Concatenate & View Files)
+
+Used to view the contents of a file quickly.
+Can also create, merge, or append files
+
+examples:
+cat file.txt              # show contents of file
+cat file1.txt file2.txt   # show contents of both files
+cat > newfile.txt         # create file and type input (Ctrl+D to save)
+cat file1.txt >> file2.txt # append file1 content to file2
+
+
+## less (View Large Files Page by Page)
+
+Used to view large files one screen at a time.
+Faster than cat for big files since it doesn’t load everything into memo
+
+examples:
+less /var/log/syslog   # open log file for viewing
+Navigation:
+Space → Next page
+b → Previous page
+/word → Search forward for “word”
+q → Quit
+
+## nano (Simple File Editor)
+
+A beginner-friendly text editor in Linux.
+Easy to use compared to vi or vim.
+
+examples:
+nano file.txt   # open file in nano editor
+Ctrl + O → Save (Write Out)
+Ctrl + X → Exit
+Ctrl + K → Cut line
+Ctrl + U → Paste line
+
+## vi / vim (Advanced Text Editor)
+
+vi = Visual Editor (default on Linux).
+vim = “Vi IMproved” (enhanced with more features like syntax highlighting).
+Very powerful but has a steeper learning curve.
+
+Modes in vi/vim:
+Command Mode (default): for navigation & commands.
+Insert Mode (press i): for editing text.
+Last Line Mode (press :): for commands like save, quit.
+
+examples:
+vi file.txt   # open file in vi editor
+
+i → Insert mode (start editing)
+Esc → Back to command mode
+:w → Save (Write)
+:q → Quit
+:wq → Save & quit
+:q! → Quit without saving
+/word → Search for “word”
+
+
+In short:
+cat → quick view.
+less → scroll/search large files.
+nano → simple editing.
+vi/vim → powerful editing (default in Linux servers).
