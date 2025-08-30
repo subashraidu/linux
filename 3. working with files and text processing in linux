@@ -65,3 +65,62 @@ cat → quick view.
 less → scroll/search large files.
 nano → simple editing.
 vi/vim → powerful editing (default in Linux servers).
+
+## text processing tools:
+
+grep:
+Purpose: Search for text patterns in files (or input).
+How it works: It matches regular expressions and prints matching lines.
+Example: grep "error" log.txt will find all lines in log.txt containing the word "error".
+
+awk:
+Purpose: A powerful text processing tool, especially useful for column-based data.
+How it works: It processes text line by line and can split input into fields (based on a delimiter).
+Example: awk '{print $1}' file.txt prints the first column of each line in file.txt.
+
+sed:
+Purpose: Stream editor for performing basic text transformations.
+How it works: It reads input line by line, applies transformations (like substitution or deletion), and outputs the result.
+Example: sed 's/old/new/g' file.txt replaces all occurrences of "old" with "new" in file.txt.
+
+find:
+Purpose: Search for files and directories in a file system based on criteria.
+How it works: It searches directory hierarchies and can filter by name, size, time, type, etc.
+Example: find /home/user -name "*.txt" finds all .txt files in the /home/user directory.
+
+## In Linux, file permissions control who can read, write, or execute a file. They are divided into three categories: User (Owner), Group, and Others.
+
+Here’s a breakdown:
+
+1. Permission Types
+Read (r): Allows reading the contents of the file.
+Write (w): Allows modifying or deleting the file.
+Execute (x): Allows running the file as a program or script.
+
+2. User, Group, and Others
+User (Owner): The file’s creator or the owner of the file.
+Group: A group of users who are assigned the same permissions for a file.
+Others: Everyone else who isn’t the owner or part of the group.
+
+3. Displaying Permissions
+The ls -l command shows file permissions in the following format:
+-rwxr-xr--
+The first character indicates the file type (- for regular files, d for directories, etc.).
+The next three characters are the permissions for the owner (rwx = read, write, execute).
+The next three characters are for the group.
+The last three characters are for others.
+
+4. Changing Permissions
+You can change file permissions using the chmod command:
+Numeric method: Each permission is represented by a number:
+r = 4, w = 2, x = 1
+Example: chmod 755 file.txt means:
+Owner: rwx (7)
+Group: rx (5)
+Others: rx (5)
+Symbolic method: You can also specify permissions symbolically:
+Example: chmod u+x file.txt adds execute permission for the owner.
+
+5. Changing Ownership
+Owner: chown user file.txt changes the owner of a file.
+Group: chown :group file.txt changes the group of a file.
