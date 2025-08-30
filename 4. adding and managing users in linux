@@ -1,0 +1,97 @@
+In Linux, adding and managing users involves creating new user accounts, modifying user details, and managing their permissions. Here’s a brief overview:
+
+1. Adding Users
+useradd: Command to create a new user.
+Syntax: sudo useradd [options] username
+Example: sudo useradd john creates a user named john.
+
+After creating the user, you typically set a password:
+passwd: Sets or changes the user password.
+Example: sudo passwd john prompts you to enter a new password for john.
+
+2. User Information
+When you create a user, Linux stores user information in /etc/passwd. This file includes:
+Username
+User ID (UID)
+Group ID (GID)
+Home directory
+Shell
+You can view a user's details using cat /etc/passwd | grep username.
+
+3. Managing Groups
+Users are often organized into groups for easier permission management.
+groupadd: Command to create a new group.
+Syntax: sudo groupadd groupname
+Example: sudo groupadd admin_group
+usermod: Add a user to a group.
+Syntax: sudo usermod -aG groupname username
+Example: sudo usermod -aG admin_group john adds john to the admin_group.
+
+4. Viewing User Information
+id: Shows a user’s UID, GID, and groups.
+Example: id john
+
+5. Deleting Users
+userdel: Command to delete a user.
+Syntax: sudo userdel [options] username
+Example: sudo userdel john deletes the john user.
+You can also delete the user’s home directory with sudo userdel -r john.
+
+6. Modifying User Details
+usermod: Modify user attributes, such as username, home directory, or shell.
+Example: sudo usermod -d /new/home/directory john changes john's home directory.
+
+7. Locking/Unlocking User Accounts
+Lock account: sudo usermod -L username locks the user’s password, preventing login.
+Unlock account: sudo usermod -U username unlocks the password.
+
+8. Setting User Permissions
+After creating users, permissions can be set for files and directories using chmod, chown, and chgrp to control access.
+
+9. Listing Users
+cat /etc/passwd: Lists all users on the system.
+getent passwd: Another way to list users.
+
+
+In Linux, /etc/passwd and /etc/group are important system files that store information about users and groups, respectively. Here’s a brief description of each:
+
+1. /etc/passwd
+The /etc/passwd file contains essential information about each user on the system. Each line in this file represents a single user, with fields separated by colons (:).
+Format:
+username:password:UID:GID:GECOS:home_directory:shell
+
+username: The username of the user account.
+password: Typically an x or *, which means the actual password is stored in the /etc/shadow file for security reasons.
+UID (User ID): A unique numeric ID assigned to each user.
+GID (Group ID): The primary group ID associated with the user.
+GECOS: A field used for full name or other descriptive information about the user (optional).
+home_directory: The path to the user's home directory (e.g., /home/username).
+shell: The default shell for the user (e.g., /bin/bash).
+
+Example:
+john:x:1001:1001:John Doe:/home/john:/bin/bash
+
+This means:
+User john with UID 1001.
+Their home directory is /home/john.
+Their shell is /bin/bash.
+
+
+/etc/group
+The /etc/group file contains information about user groups. Each line represents a group, with fields separated by colons (:).
+
+Format:
+group_name:password:GID:user_list
+
+group_name: The name of the group.
+password: Typically an x or *, indicating that the actual group password (if any) is stored elsewhere.
+GID (Group ID): A unique numeric ID assigned to the group.
+user_list: A comma-separated list of users who belong to the group (excluding the primary group, which is listed in /etc/passwd).
+
+Example:
+admins:x:1002:john,alice
+
+This means:
+The group admins with GID 1002.
+The users john and alice are members of the admins group.
+
