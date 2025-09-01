@@ -1,0 +1,120 @@
+What is a Process?
+
+A process is an instance of a program running in memory.
+When you execute a command or application, the OS creates a process.
+Each process has:
+A Process ID (PID) – unique number
+A parent process (PPID) – the process that started it
+A state (running, sleeping, stopped, zombie)
+
+ A process is just a running program with its own resources (CPU, memory, files, etc.).
+
+Types of Processes
+Foreground Process
+Runs interactively in the terminal.
+Example: vim file.txt
+
+Background Process
+Runs without blocking the terminal.
+Add & at the end:
+ping google.com > ping.log &
+
+Daemon Process
+Background process that runs continuously (like services).
+Example: sshd, nginx, cron
+
+Process States
+Running (R) → Actively using CPU.
+Sleeping (S) → Waiting for an event (I/O).
+Stopped (T) → Paused (e.g., Ctrl+Z).
+Zombie (Z) → Process finished but not cleaned up by parent.
+
+Process Commands
+ps -ef → List running processes.
+top or htop → Interactive process monitoring.
+jobs → Show background jobs.
+fg %1 → Bring job 1 to foreground.
+bg %1 → Resume job 1 in background.
+kill -9 PID → Force kill a process.
+pgrep nginx → Find PID of a process by name.
+
+
+
+System Monitoring in Linux
+ # CPU Usage
+What it means: Percentage of CPU time used by processes. High CPU usage = server under load.
+Commands:
+top          # Real-time CPU usage per process
+htop         # Interactive version of top (if installed)
+mpstat 1     # CPU usage per core (from sysstat package)
+uptime       # Shows load average (1, 5, 15 min)
+
+Memory Usage
+What it means: RAM usage (free vs used).
+Commands:
+free -m      # Show memory in MB
+vmstat 1     # Memory, CPU, swap usage
+cat /proc/meminfo  # Detailed memory info
+top / htop   # Also shows memory per process
+
+Disk Usage & I/O
+What it means: How much disk space is used and I/O (read/write operations).
+Commands:
+df -h        # Disk usage (human-readable)
+du -sh /var  # Size of a directory
+iostat 1     # Disk I/O statistics (from sysstat package)
+lsblk        # Block devices (disks, partitions)
+
+Network Activity
+What it means: Bandwidth usage, connections, open ports.
+Commands:
+ifconfig / ip addr       # Show network interfaces
+ss -tulnp                # Show open ports & listening services
+netstat -tulnp           # (older version of ss)
+ping google.com          # Test connectivity
+curl -I example.com      # Test HTTP response
+sar -n DEV 1             # Network stats (from sysstat package)
+
+CPU → top, htop, mpstat, uptime
+Memory → free -m, vmstat, top
+Disk I/O → df -h, du -sh, iostat
+Network → ss, netstat, ifconfig/ip, sar -n
+
+What is a Cron Job?
+A cron job is a scheduled task in Linux.
+It runs automatically at specified times/dates without manual intervention.
+Managed by the cron daemon (crond).
+Example uses:
+Running backups daily
+Cleaning up logs weekly
+Sending alerts or reports
+
+Crontab
+Cron jobs are defined in a crontab (cron table) file.
+Each user (including root) can have their own crontab.
+crontab -e      # Edit cron jobs
+crontab -l      # List cron jobs
+crontab -r      # Remove all cron jobs
+
+Each line in crontab follows:
+MIN  HOUR  DAY  MONTH  DAYOFWEEK   command
+
+examples:
+# Run a script every day at 2 AM
+0 2 * * * /home/user/backup.sh
+
+# Run every Monday at 5:30 AM
+30 5 * * 1 /home/user/report.sh
+
+# Run every 15 minutes
+*/15 * * * * /home/user/check.sh
+
+# Run at system reboot
+@reboot /home/user/startup.sh
+
+Instead of numbers, you can use keywords:
+@reboot → Run once after system boot
+@daily → Run once a day (midnight)
+@weekly → Run once a week
+@monthly → Run once a month
+@yearly → Run once a year
