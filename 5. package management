@@ -1,0 +1,57 @@
+# What is Package Management?
+
+A package = software + metadata (version, dependencies, configs).
+A package manager is a tool that:
+Installs software
+Resolves dependencies
+Updates software
+Removes software
+Keeps the system consistent and secure
+Without package managers, we would have to manually download, compile, and install software.
+
+Types of Package Managers
+
+# Debian-based (Ubuntu, Debian, Mint)
+Tools: apt, apt-get, dpkg
+Package format: .deb
+Examples:
+apt install nginx → Install
+apt remove nginx → Remove
+apt update && apt upgrade → Update package list & upgrade
+
+RedHat-based (RHEL, CentOS, Fedora, Rocky, AlmaLinux)
+Tools: yum (older), dnf (modern)
+Package format: .rpm
+Examples:
+yum install nginx or dnf install nginx
+yum remove nginx
+
+Popular Package Tools
+snap → Universal packages (works across distros).
+flatpak → Cross-platform package distribution.
+pip → Python package manager.
+npm / yarn → Node.js package managers.
+
+Install a Package
+sudo apt install tree     # Debian/Ubuntu
+sudo yum install tree     # RHEL/CentOS
+sudo dnf install tree     # Fedora
+
+Remove a Package
+sudo apt remove tree
+sudo yum remove tree
+
+Upgrade a Package
+sudo apt upgrade tree
+sudo yum update tree
+
+Update Repository List
+sudo apt update
+sudo yum makecache
+
+Search for a Package
+apt search nginx
+yum search nginx
+
+
+yum update
