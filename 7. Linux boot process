@@ -1,0 +1,65 @@
+Linux Boot Process
+
+When you power on a Linux system, it goes through several stages before you see the login prompt.
+
+#BIOS / UEFI (Firmware)
+BIOS (Basic Input/Output System) or UEFI initializes the hardware (CPU, RAM, disks, etc.).
+Performs POST (Power-On Self Test).
+Looks for a boot device (hard disk, USB, network).
+Loads the bootloader from the boot sector of the disk (MBR/GPT).
+
+#Bootloader (GRUB, LILO, etc.)
+The bootloader loads the operating system kernel into memory.
+Common bootloaders:
+GRUB2 (most popular in Linux distros)
+LILO (older, rarely used)
+Functions:
+Displays a boot menu (if multiple OS are installed).
+Loads the selected Linux kernel and the initramfs (initial RAM filesyste
+
+#Linux Kernel
+Kernel = core of the OS, manages hardware and system resources.
+Once loaded, it:
+Detects hardware (CPU, memory, devices).
+Mounts the root filesystem (/).
+Starts the init process (first user-space program).
+
+#Init System (SysVinit / systemd / Upstart)
+The init system is the first process started by the kernel (PID 1).
+It initializes the system and starts services.
+Modern Linux systems mostly use systemd (instead of old SysVinit).
+
+# Runlevels / Targets
+Define what services/processes start at boot.
+In SysVinit, runlevels were:
+0 → Halt (shutdown)
+1 → Single-user mode (maintenance)
+3 → Multi-user, no GUI
+5 → Multi-user, GUI
+6 → Reboot
+In systemd, runlevels are replaced by targets:
+poweroff.target → Shutdown
+rescue.target → Single-user mode
+multi-user.target → Multi-user, no GUI
+graphical.target → Multi-user with GUI
+reboot.target → Reboot
+
+BIOS/UEFI → Initializes hardware, finds boot device.
+Bootloader (GRUB) → Loads Linux kernel + initramfs.
+Kernel → Initializes hardware, mounts root filesystem, starts init.
+Init system (systemd) → Starts services.
+Runlevels/Targets → Define system state (multi-user, GUI, etc.).
+
+Power ON
+   ↓
+BIOS/UEFI → Initializes hardware, runs POST, finds boot device
+   ↓
+Bootloader (GRUB) → Loads Kernel + initramfs, shows boot menu
+   ↓
+Linux Kernel → Detects hardware, mounts root filesystem, starts init (PID 1)
+   ↓
+Init System (systemd) → Starts services, mounts file systems
+   ↓
+Runlevels / Targets → Defines system state (CLI/GUI/Maintenance)
+   ↓
+Login Prompt (shell or GUI)
